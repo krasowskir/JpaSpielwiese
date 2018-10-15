@@ -1,0 +1,12 @@
+spring:
+ jpa:
+  generate-ddl: true
+  database: POSTGRESQL
+
+jpaSpielwiese:
+  datasource:
+    driverClassName: org.postgresql.Driver
+    platform: postgres
+    url: jdbc:postgresql://localhost:5432/testjpa
+    username: richard
+    password: test123
