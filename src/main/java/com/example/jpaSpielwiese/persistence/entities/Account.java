@@ -15,7 +15,7 @@ public class Account {
     @Column(name = "spielberechtigt")
     private boolean fsk18;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "account")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "account")
     private Set<Player> spieler;
 
     public UUID getId() {

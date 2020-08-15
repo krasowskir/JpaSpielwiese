@@ -1,12 +1,18 @@
 spring:
- jpa:
-  generate-ddl: true
-  database: POSTGRESQL
+  jpa:
+    generate-ddl: true
+    show-sql: true
+  datasource:
+    url: ${DB_JDBC_URL} #jdbc:postgresql://localhost:5432/bondb
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    driver-class-name: org.postgresql.Driver
 
 jpaSpielwiese:
-  datasource:
-    driverClassName: org.postgresql.Driver
-    platform: postgres
-    url: jdbc:postgresql://localhost:5432/testjpa
-    username: richard
-    password: test123
+  umgebung: dev
+
+logging:
+  level:
+    org.springframework: info
+    org.hibernate: debug
+    root: info

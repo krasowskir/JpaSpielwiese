@@ -6,12 +6,17 @@ import com.example.jpaSpielwiese.persistence.entities.Player;
 import com.example.jpaSpielwiese.service.AccountService;
 import com.example.jpaSpielwiese.service.PlayerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
-import java.util.*;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
+import java.util.UUID;
 
 @Component
+@ConditionalOnProperty(value = "jpaSpielwiese.umgebung", havingValue = "dev")
 public class Start {
 
     @Autowired
@@ -47,7 +52,6 @@ public class Start {
 
         Account zockerAccount = new Account();
         zockerAccount.setFsk18(true);
-        zockerAccount.setId(UUID.randomUUID());
 
         Set<Player> spielers = new HashSet<>();
         spielers.add(richard);
@@ -56,16 +60,9 @@ public class Start {
         richard.setAccount(zockerAccount);
         toni.setAccount(zockerAccount);
 
-        /*System.out.println(playerService.savePlayer(richard));
-        System.out.println(playerService.savePlayer(toni));*/
-
         System.out.println("====== persist account =======");
-        System.out.println(accountService.saveAccount(zockerAccount));
+        Account storedZockerAccount = accountService.saveAccount(zockerAccount);
 
-        System.out.println("====== find Player ======");
-        Player foundPlayer = playerService.getPlayer(UUID.fromString("d37c96d1-3395-420f-a87c-70c6ae4bbdaa"));
-        System.out.println(foundPlayer);
-        System.out.println("Adresse: " + foundPlayer.getAdresse());
     }
 
 

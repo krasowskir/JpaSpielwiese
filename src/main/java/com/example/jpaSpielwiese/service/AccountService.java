@@ -18,10 +18,10 @@ public class AccountService {
     }
 
     public Account getAccount(UUID id){
-        return accountRepository.findOne(id);
+        return accountRepository.findById(id).get();
     }
 
     public void removeAccount(UUID id){
-        accountRepository.delete(id);
+        accountRepository.deleteById(id);
     }
 }

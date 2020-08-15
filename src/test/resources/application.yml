@@ -1,0 +1,11 @@
+spring:
+ jpa:
+  generate-ddl: true
+  datasource:
+    url: jdbc:postgresql://localhost:5432/testjpa #${DB_JDBC_URL} #jdbc:postgresql://localhost:5432/bondb
+    username: richard # ${DB_USERNAME}
+    password: test123 # ${DB_PASSWORD}
+    driver-class-name: "org.postgresql.Driver"
+
+jpaSpielwiese:
+  umgebung: test

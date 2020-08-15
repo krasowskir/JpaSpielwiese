@@ -14,27 +14,27 @@ import javax.sql.DataSource;
 @EnableTransactionManagement
 public class MainConfiguration {
 
-    @Value("${jpaSpielwiese.datasource.driverClassName}")
-    String driverClassName;
-
-    @Value("${jpaSpielwiese.datasource.url}")
-    String databaseUrl;
-
-    @Value("${jpaSpielwiese.datasource.username}")
-    String username;
-
-    @Value("${jpaSpielwiese.datasource.password}")
-    String password;
-
-    @Bean
-    public DataSource dataSource() {
-        SingleConnectionDataSource dataSource = new SingleConnectionDataSource();
-
-        dataSource.setDriverClassName(driverClassName);
-        dataSource.setUrl(databaseUrl);
-        dataSource.setUsername(username);
-        dataSource.setPassword(password);
-        dataSource.setSuppressClose(true);
-        return dataSource;
-    }
+//    @Value("${jpaSpielwiese.datasource.driverClassName}")
+//    String driverClassName;
+//
+//    @Value("${jpaSpielwiese.datasource.url}")
+//    String databaseUrl;
+//
+//    @Value("${jpaSpielwiese.datasource.username}")
+//    String username;
+//
+//    @Value("${jpaSpielwiese.datasource.password}")
+//    String password;
+//
+//    @Bean
+//    public DataSource dataSource() {
+//        SingleConnectionDataSource dataSource = new SingleConnectionDataSource();
+//
+//        dataSource.setDriverClassName(driverClassName);
+//        dataSource.setUrl(databaseUrl);
+//        dataSource.setUsername(username);
+//        dataSource.setPassword(password);
+//        dataSource.setSuppressClose(true);
+//        return dataSource;
+//    }
 }

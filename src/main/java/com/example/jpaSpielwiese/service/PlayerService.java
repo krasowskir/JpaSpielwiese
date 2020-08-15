@@ -23,6 +23,6 @@ public class PlayerService {
     }
 
     public Player getPlayer(UUID findId){
-        return playerRepository.findOne(findId);
+        return playerRepository.findById(findId).get();
     }
 }
